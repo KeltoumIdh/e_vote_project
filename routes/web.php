@@ -17,6 +17,22 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('app');
 });
-
+Route::get('/admin', function () {
+    return view('admin.index');
+});
+//candidats
+Route::get('/admin/candidats', function () {
+    return view('admin.candidat.index');
+});
+Route::get('/admin/candidats/add', function () {
+    return view('admin.candidat.add');
+});
+//voters
+Route::get('/admin/voters', function () {
+    return view('admin.voters.index');
+});
+Route::get('/admin/voters/add', function () {
+    return view('admin.voters.add');
+});
 Route::get('/register', [RegisterController::class, 'create']);
 Route::post('/register', [RegisterController::class, 'store']);

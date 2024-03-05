@@ -12,7 +12,7 @@
     </ul>
 </div>
 @endif
-<section class="bg-red-50 h-full ">
+<section class="bg-gray-50 h-full ">
     <div class="flex flex-col h-full items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
 
         <div class="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
@@ -51,4 +51,4 @@
     </div>
 </section>
 
-@endsection('content')
+@endsection
