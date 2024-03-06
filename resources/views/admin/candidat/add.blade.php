@@ -7,15 +7,16 @@
     </div>
     <div class="w-full px-8   mx-auto">
         <div class="p-6  w-full border border-gray-300 sm:rounded-md">
-          <form
+        <form
             method="POST"
-            action="https://herotofu.com/start"
+            action="{{url('candidats/add')}}"
             enctype="multipart/form-data"
-          >
+        >
             <label class="block mb-6">
-              <span class="text-gray-700">Your name</span>
+            <span class="text-gray-700">Your name</span>
               <input
                 name="name"
+                value="{{ old('name') }}"
                 type="text"
                 class="
                   block
@@ -32,12 +33,15 @@
                 placeholder="Joe Bloggs"
               />
             </label>
+            @error('name')
+                        <div class=" text-red-700 ">{{ $message }}</div>
+                    @enderror
             <label class="block mb-6">
               <span class="text-gray-700"
                 >choisie une Election</span
               >
               <select
-                name="present"
+                name="election_id"
                 class="py-2
                   block
                   w-full
@@ -51,10 +55,10 @@
                   focus:ring-opacity-50
                 "
               >
-                <option>gaming club</option>
-                <option>shcool delege</option>
-                <option>art club</option>
-                <option>football club</option>
+              @foreach ($elections as $election)
+              <option value={{ $election->id }}>{{$election->name}}</option>
+              @endforeach
+
               </select>
             </label>
             <label class="block mb-6">

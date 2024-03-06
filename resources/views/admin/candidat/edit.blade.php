@@ -7,11 +7,12 @@
     </div>
     <div class="w-full px-8   mx-auto">
         <div class="p-6  w-full border border-gray-300 sm:rounded-md">
-          <form
-            method="POST"
+        <form
+            method="get"
             action="https://herotofu.com/start"
             enctype="multipart/form-data"
           >
+          @csrf
             <label class="block mb-6">
               <span class="text-gray-700">Your name</span>
               <input

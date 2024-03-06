@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\CandidateController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,6 +18,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('app');
 });
+Route::get('/vote', function () {
+    return view('welcome');
+});
 Route::get('/admin', function () {
     return view('admin.index');
 });
@@ -24,9 +28,8 @@ Route::get('/admin', function () {
 Route::get('/admin/candidats', function () {
     return view('admin.candidat.index');
 });
-Route::get('/admin/candidats/add', function () {
-    return view('admin.candidat.add');
-});
+Route::get('/candidats/add', [CandidateController::class, 'create']);
+Route::get('/admin/candidats/add', [CandidateController::class, 'getallelections']);
 //voters
 Route::get('/admin/voters', function () {
     return view('admin.voters.index');
@@ -34,5 +37,6 @@ Route::get('/admin/voters', function () {
 Route::get('/admin/voters/add', function () {
     return view('admin.voters.add');
 });
+
 Route::get('/register', [RegisterController::class, 'create']);
 Route::post('/register', [RegisterController::class, 'store']);
