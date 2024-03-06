@@ -50,7 +50,7 @@ class CandidateController extends Controller
 
         if ($request->hasFile('image')) {
             $file = $request->file('image');
-            $ext = $file->getcandidatOriginalExtension();
+            $ext = $file->getClientOriginalExtension();
             $filename = time() . '.' . $ext;
             $file->move('assets/uploads/candidats/', $filename);
             $candidats->image = $filename;
@@ -85,9 +85,9 @@ class CandidateController extends Controller
 
     public function edit($id)
     {
-
+        $elections = Election::all();
         $candidat = Candidate::find($id);
-        return view('admin.candidats.edit', compact('candidat'));
+        return view('admin.candidat.edit', compact(['candidat', 'elections']));
     }
 
     public function update(Request $request, $id)
@@ -107,25 +107,23 @@ class CandidateController extends Controller
         if ($request->hasFile('image')) {
             if ($candidat->image !== 'default.jpg') {
                 $existingImagePath = public_path('assets/uploads/candidats/' . $candidat->image);
-            if (file_exists($existingImagePath)) {
-                unlink($existingImagePath);
+                if (file_exists($existingImagePath)) {
+                    unlink($existingImagePath);
+                }
             }
-        }
             // Upload and save the new image
             $file = $request->file('image');
-            $filename = time() . '.' . $file->getcandidatOriginalExtension();
+            $filename = time() . '.' . $file->getClientOriginalExtension();
             $file->move(public_path('assets/uploads/candidats/'), $filename);
 
             // Update the candidat's image
             $candidat->image = $filename;
         }
         $candidat->name = $request->input('name');
-        $candidat->lname = $request->input('lname');
-        $candidat->email = $request->input('email');
-        $candidat->phone = $request->input('phone');
+        $candidat->election_id = $request->input('election_id');
         $candidat->update();
 
-        return redirect('/candidats')->with('status', 'candidat modifier avec success');
+        return redirect('/admin/candidats')->with('status', 'candidat modifier avec success');
     }
 
     /**
@@ -135,12 +133,12 @@ class CandidateController extends Controller
     {
         $candidat = Candidate::find($id);
         if ($candidat->image !== 'default.jpg') {
-        $path = 'assets/uploads/candidats/' . $candidat->image;
-        if (file_exists($path)) {
-            unlink($path);
+            $path = 'assets/uploads/candidats/' . $candidat->image;
+            if (file_exists($path)) {
+                unlink($path);
+            }
         }
-    }
         $candidat->delete();
-        return redirect('candidats')->with('status', 'candidat est supprimee avec succes');
+        return redirect('/admin/candidats')->with('status', 'candidat est supprimee avec succes');
     }
 }

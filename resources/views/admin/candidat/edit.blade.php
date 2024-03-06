@@ -8,15 +8,17 @@
     <div class="w-full px-8   mx-auto">
         <div class="p-6  w-full border border-gray-300 sm:rounded-md">
         <form
-            method="get"
-            action="https://herotofu.com/start"
+            method="post"
+            action="{{url('candidats/update/'.$candidat->id)}}"
             enctype="multipart/form-data"
           >
+          @method('PUT')
           @csrf
             <label class="block mb-6">
               <span class="text-gray-700">Your name</span>
               <input
                 name="name"
+                value="{{ old('name', $candidat->name) }}"
                 type="text"
                 class="
                   block
@@ -33,36 +35,42 @@
                 placeholder="Joe Bloggs"
               />
             </label>
-            <label class="block mb-6">
-              <span class="text-gray-700"
-                >choisie une Election</span
-              >
-              <select
-                name="present"
-                class="py-2
-                  block
-                  w-full
-                  mt-1
-                  border-gray-300
-                  rounded-md
-                  shadow-sm
-                  focus:border-indigo-300
-                  focus:ring
-                  focus:ring-indigo-200
-                  focus:ring-opacity-50
-                "
-              >
-                <option>gaming club</option>
-                <option>shcool delege</option>
-                <option>art club</option>
-                <option>football club</option>
-              </select>
-            </label>
+            @error('name')
+                    <div class="text-red-700">{{ $message }}</div>
+                @enderror
+                <label class="block mb-6">
+                    <span class="text-gray-700">Choisir une Election</span>
+                    <select
+                        name="election_id"
+                        class="py-2
+                            block
+                            w-full
+                            mt-1
+                            border-gray-300
+                            rounded-md
+                            shadow-sm
+                            focus:border-indigo-300
+                            focus:ring
+                            focus:ring-indigo-200
+                            focus:ring-opacity-50"
+                    >
+                        @foreach ($elections as $election)
+                            <option value="{{ $election->id }}" {{ $election->id == old('election_id', $candidat->election_id) ? 'selected' : '' }}>
+                                {{ $election->name }}
+                            </option>
+                        @endforeach
+                    </select>
+                </label>
+
+            @error('election_id')
+                    <div class="text-red-700">{{ $message }}</div>
+                @enderror
             <label class="block mb-6">
               <span class="text-gray-700">Your photo</span>
               <input
-                name="photo"
+                name="image"
                 type="file"
+                value="{{ $candidat->image }}"
                 class="
                   block
                   w-full
@@ -75,14 +83,16 @@
               />
             </label>
 
-
+            @error('image')
+            <div class="text-red-700">{{ $message }}</div>
+        @enderror
 
             <div class="mb-6">
               <button
                 type="submit"
                 class="text-white flex items-center bg-gray-900 hover:bg-gray-500 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-1 mr-2 "
               >
-                Create
+                update
               </button>
             </div>
             <div>
