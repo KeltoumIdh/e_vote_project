@@ -14,4 +14,8 @@ class Election extends Model
         'start',
         'end',
     ];
+    public function candidates()
+    {
+        return $this->hasMany(Candidate::class, 'election_id');
+    }
 }

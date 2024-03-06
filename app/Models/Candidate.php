@@ -13,4 +13,8 @@ class Candidate extends Model
         'name',
         'election_id',
     ];
+    public function election()
+    {
+        return $this->belongsTo(Election::class, 'election_id');
+    }
 }

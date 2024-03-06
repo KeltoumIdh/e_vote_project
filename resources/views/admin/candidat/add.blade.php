@@ -12,7 +12,8 @@
             action="{{url('candidats/add')}}"
             enctype="multipart/form-data"
         >
-            <label class="block mb-6">
+        {{ csrf_field() }}
+        <label class="block mb-6">
             <span class="text-gray-700">Your name</span>
               <input
                 name="name"
@@ -64,7 +65,7 @@
             <label class="block mb-6">
               <span class="text-gray-700">Your photo</span>
               <input
-                name="photo"
+                name="image"
                 type="file"
                 class="
                   block

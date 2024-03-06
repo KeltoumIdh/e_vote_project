@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Election;
 use Illuminate\Http\Request;
+use Termwind\Components\Element;
 
 class ElectionController extends Controller
 {
@@ -12,7 +13,8 @@ class ElectionController extends Controller
      */
     public function index()
     {
-        //
+        $elections = Election::all();
+        return view('app', compact('elections'));
     }
 
     /**

@@ -15,30 +15,26 @@
               class="border-b border-neutral-200 font-medium ">
               <tr>
                 <th scope="col" class="px-6 py-4">#</th>
-                <th scope="col" class="px-6 py-4">First</th>
-                <th scope="col" class="px-6 py-4">Last</th>
-                <th scope="col" class="px-6 py-4">Handle</th>
+                <th scope="col" class="px-6 py-4">name</th>
+                <th scope="col" class="px-6 py-4">election</th>
+                <th scope="col" class="px-6 py-4">action</th>
               </tr>
             </thead>
+            @foreach ($candidats as $candid)
             <tbody>
               <tr class="border-b border-neutral-200 ">
-                <td class="whitespace-nowrap px-6 py-4 font-medium">1</td>
-                <td class="whitespace-nowrap px-6 py-4">Mark</td>
-                <td class="whitespace-nowrap px-6 py-4">Otto</td>
-                <td class="whitespace-nowrap px-6 py-4">@mdo</td>
+                <td class="whitespace-nowrap px-6 py-4 font-medium flex items-center">
+                    <img src="{{ asset('assets/uploads/candidats/' . $candid->image) }}" alt="Candidate Image" class="w-10 h-10 mr-2">
+                    {{ $candid->id }}
+                </td>
+                <td class="whitespace-nowrap px-6 py-4">{{ $candid->name }}</td>
+                <td class="whitespace-nowrap px-6 py-4">{{ $candid->election->name }}</td>
+                <td class="whitespace-nowrap px-6 py-4 flex">
+                    <a href="{{ url('candidats/edit/'.$candid->id) }}" class="text-white flex items-center bg-green-600 hover:bg-gray-900 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-1 mr-2 ">edit</a>
+                    <a href="{{ url('candidats/delete/'.$candid->id) }}" class="text-white flex items-center bg-red-600 hover:bg-gray-900 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-1 mr-2 ">delete</a>
+                </td>
               </tr>
-              <tr class="border-b border-neutral-200 ">
-                <td class="whitespace-nowrap px-6 py-4 font-medium">2</td>
-                <td class="whitespace-nowrap px-6 py-4">Jacob</td>
-                <td class="whitespace-nowrap px-6 py-4">Thornton</td>
-                <td class="whitespace-nowrap px-6 py-4">@fat</td>
-              </tr>
-              <tr class="border-b border-neutral-200 ">
-                <td class="whitespace-nowrap px-6 py-4 font-medium">3</td>
-                <td class="whitespace-nowrap px-6 py-4">Larry</td>
-                <td class="whitespace-nowrap px-6 py-4">Wild</td>
-                <td class="whitespace-nowrap px-6 py-4">@twitter</td>
-              </tr>
+                @endforeach
             </tbody>
           </table>
         </div>

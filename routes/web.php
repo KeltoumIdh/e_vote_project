@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\CandidateController;
+use App\Http\Controllers\ElectionController;
+use App\Models\Candidate;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,20 +17,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('app');
-});
-Route::get('/vote', function () {
-    return view('welcome');
-});
+Route::get('/', [ElectionController::class, 'index']);
+Route::get('/vote', [CandidateController::class, 'getall']);
+//
 Route::get('/admin', function () {
     return view('admin.index');
 });
 //candidats
-Route::get('/admin/candidats', function () {
-    return view('admin.candidat.index');
+Route::get('/admin/candidats', [CandidateController::class, 'index']);
+Route::group(['middleware' => 'web'], function () {
+    Route::post('/candidats/add', [CandidateController::class, 'create']);
+    Route::post('/candidats/edit/{id}', [CandidateController::class, 'edit']);
+    Route::put('/candidats/update/{id}', [CandidateController::class, 'update']);
+    Route::delete('/candidats/delete/{id}', [CandidateController::class, 'delete']);
 });
-Route::get('/candidats/add', [CandidateController::class, 'create']);
 Route::get('/admin/candidats/add', [CandidateController::class, 'getallelections']);
 //voters
 Route::get('/admin/voters', function () {

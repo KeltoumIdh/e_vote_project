@@ -13,9 +13,14 @@ class CandidateController extends Controller
     /**
      * Display a listing of the resource.
      */
+    public function getall()
+    {
+        $candidats = Candidate::all();
+        return view('welcome', compact('candidats'));
+    }
     public function index()
     {
-        $candidats = Candidate::paginate(10);
+        $candidats = Candidate::all();
         return view('admin.candidat.index', compact('candidats'));
     }
     public function getallelections()
@@ -31,7 +36,7 @@ class CandidateController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'name' => 'required|string|max:255',
-            'election_id' => 'nullable|string|max:255',
+            'election_id' => 'nullable|integer',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
@@ -41,22 +46,22 @@ class CandidateController extends Controller
                 ->withInput();
         }
 
-        $clients = new Candidate();
+        $candidats = new Candidate();
 
         if ($request->hasFile('image')) {
             $file = $request->file('image');
-            $ext = $file->getClientOriginalExtension();
+            $ext = $file->getcandidatOriginalExtension();
             $filename = time() . '.' . $ext;
             $file->move('assets/uploads/candidats/', $filename);
-            $clients->image = $filename;
+            $candidats->image = $filename;
         } else {
-            $clients->image = 'default.jpg';
+            $candidats->image = 'default.jpg';
         }
-        $clients->name = $request->input('name');
-        $clients->election_id = $request->input('election_id');
+        $candidats->name = $request->input('name');
+        $candidats->election_id = $request->input('election_id');
 
 
-        $clients->save();
+        $candidats->save();
 
         return redirect('/admin/candidats')->with('status', 'Candidat ajouter avec success');
     }
@@ -78,27 +83,64 @@ class CandidateController extends Controller
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Candidate $candidate)
+    public function edit($id)
     {
-        //
+
+        $candidat = Candidate::find($id);
+        return view('admin.candidats.edit', compact('candidat'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Candidate $candidate)
+    public function update(Request $request, $id)
     {
-        //
+        $candidat = Candidate::find($id);
+        $validator = Validator::make($request->all(), [
+            'name' => 'required|string|max:255',
+            'election_id' => 'nullable|integer',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect("/candidats/edit/$id")
+                ->withErrors($validator)
+                ->withInput();
+        }
+        if ($request->hasFile('image')) {
+            if ($candidat->image !== 'default.jpg') {
+                $existingImagePath = public_path('assets/uploads/candidats/' . $candidat->image);
+            if (file_exists($existingImagePath)) {
+                unlink($existingImagePath);
+            }
+        }
+            // Upload and save the new image
+            $file = $request->file('image');
+            $filename = time() . '.' . $file->getcandidatOriginalExtension();
+            $file->move(public_path('assets/uploads/candidats/'), $filename);
+
+            // Update the candidat's image
+            $candidat->image = $filename;
+        }
+        $candidat->name = $request->input('name');
+        $candidat->lname = $request->input('lname');
+        $candidat->email = $request->input('email');
+        $candidat->phone = $request->input('phone');
+        $candidat->update();
+
+        return redirect('/candidats')->with('status', 'candidat modifier avec success');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Candidate $candidate)
+    public function delete($id)
     {
-        //
+        $candidat = Candidate::find($id);
+        if ($candidat->image !== 'default.jpg') {
+        $path = 'assets/uploads/candidats/' . $candidat->image;
+        if (file_exists($path)) {
+            unlink($path);
+        }
+    }
+        $candidat->delete();
+        return redirect('candidats')->with('status', 'candidat est supprimee avec succes');
     }
 }
