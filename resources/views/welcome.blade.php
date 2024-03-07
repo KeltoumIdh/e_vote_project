@@ -7,163 +7,38 @@
     </div>
 
     <div class="flex justify-center items-center h-full mt-8">
-        {{-- <div class="space-y-4">
-        <!-- First Box -->
-        <div class="max-w-xs bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-            <div class="flex items-center p-4">
-                <img class="w-10 h-10 rounded-full shadow-lg" src="/docs/images/people/profile-picture-5.jpg" alt="">
-                <div class="ml-4 font-medium dark:text-white">
-                    <div>Participant 1</div>
-                    <div class="text-sm text-gray-500 dark:text-gray-400">aaaa</div>
-                </div>
-            </div>
-            <div class="flex justify-end pb-4 pr-4">
-                <button onclick="showPasswordInput(this)" class="px-4 py-2 text-sm font-medium text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Vote</button>
-            </div>
-            <div class="password-input hidden p-4">
-                <input type="password" placeholder="Enter your password" class="border border-gray-300 p-2 rounded-md">
-                <button class="px-4 py-2 mt-2 text-sm font-medium text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
-            </div>
-        </div>
-
-        <!-- Second Box -->
-        <div class="max-w-xs bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-            <div class="flex items-center p-4">
-                <img class="w-10 h-10 rounded-full shadow-lg" src="/docs/images/people/profile-picture-5.jpg" alt="">
-                <div class="ml-4 font-medium dark:text-white">
-                    <div>Participant 2</div>
-                    <div class="text-sm text-gray-500 dark:text-gray-400">zzzz</div>
-                </div>
-            </div>
-            <div class="flex justify-end pb-4 pr-4">
-                <button onclick="showPasswordInput(this)" class="px-4 py-2 text-sm font-medium text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Vote</button>
-            </div>
-            <div class="password-input hidden p-4">
-                <input type="password" placeholder="Enter your password" class="border border-gray-300 p-2 rounded-md">
-                <button class="px-4 py-2 mt-2 text-sm font-medium text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
-            </div>
-        </div>
-
-        <!-- Third Box -->
-        <div class="max-w-xs bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-            <div class="flex items-center p-4">
-                <img class="w-10 h-10 rounded-full shadow-lg" src="/docs/images/people/profile-picture-5.jpg" alt="">
-                <div class="ml-4 font-medium dark:text-white">
-                    <div>Participant 3</div>
-                    <div class="text-sm text-gray-500 dark:text-gray-400">eeee</div>
-                </div>
-            </div>
-            <div class="flex justify-end pb-4 pr-4">
-                <button onclick="showPasswordInput(this)" class="px-4 py-2 text-sm font-medium text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Vote</button>
-            </div>
-            <div class="password-input hidden p-4">
-                <input type="password" placeholder="Enter your password" class="border border-gray-300 p-2 rounded-md">
-                <button class="px-4 py-2 mt-2 text-sm font-medium text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
-            </div>
-        </div>
-
-        <!-- Fourth Box -->
-        <div class="max-w-xs bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-            <div class="flex items-center p-4">
-                <img class="w-10 h-10 rounded-full shadow-lg" src="/docs/images/people/profile-picture-5.jpg" alt="">
-                <div class="ml-4 font-medium dark:text-white">
-                    <div>Participant 4</div>
-                    <div class="text-sm text-gray-500 dark:text-gray-400">rrrr</div>
-                </div>
-            </div>
-            <div class="flex justify-end pb-4 pr-4">
-                <button onclick="showPasswordInput(this)" class="px-4 py-2 text-sm font-medium text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Vote</button>
-            </div>
-            <div class="password-input hidden p-4">
-                <input type="password" placeholder="Enter your password" class="border border-gray-300 p-2 rounded-md">
-                <button class="px-4 py-2 mt-2 text-sm font-medium text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
-            </div>
-        </div>
-
-        <!-- Fifth Box -->
-        <div class="max-w-xs bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-            <div class="flex items-center p-4">
-                <img class="w-10 h-10 rounded-full shadow-lg" src="/docs/images/people/profile-picture-5.jpg" alt="">
-                <div class="ml-4 font-medium dark:text-white">
-                    <div>Participant 5</div>
-                    <div class="text-sm text-gray-500 dark:text-gray-400">tttt</div>
-                </div>
-            </div>
-            <div class="flex justify-end pb-4 pr-4">
-                <button onclick="showPasswordInput(this)" class="px-4 py-2 text-sm font-medium text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Vote</button>
-            </div>
-            <div class="password-input hidden p-4">
-                <input type="password" placeholder="Enter your password" class="border border-gray-300 p-2 rounded-md">
-                <button class="px-4 py-2 mt-2 text-sm font-medium text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
-            </div>
-        </div>
-
-        <!-- Sixth Box -->
-        <div class="max-w-xs bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-            <div class="flex items-center p-4">
-                <img class="w-10 h-10 rounded-full shadow-lg" src="/docs/images/people/profile-picture-5.jpg" alt="">
-                <div class="ml-4 font-medium dark:text-white">
-                    <div>Participant 6</div>
-                    <div class="text-sm text-gray-500 dark:text-gray-400">yyyy</div>
-                </div>
-            </div>
-            <div class="flex justify-end pb-4 pr-4">
-                <button onclick="showPasswordInput(this)" class="px-4 py-2 text-sm font-medium text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Vote</button>
-            </div>
-            <div class="password-input hidden p-4">
-                <input type="password" placeholder="Enter your password" class="border border-gray-300 p-2 rounded-md">
-                <button class="px-4 py-2 mt-2 text-sm font-medium text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
-            </div>
-        </div>
-    </div> --}}
-
         <div class="space-y-4">
             <div class="container">
                 <div class="grid-wrapper grid-col-auto">
-                    <label for="radio-card-1" class="radio-card">
-                        <input type="radio" name="radio-card" id="radio-card-1" checked />
+                @if (count($candidats) === 0)
+                    <p>No data found</p>
+                @endif
+                @php
+                    $selectedCard = null;
+                @endphp
+                    @foreach ($candidats as $candid)
+                    <label for="radio-card-{{ $candid->id }}" class="radio-card">
+                        <input type="radio" name="radio-card" id="radio-card-{{ $candid->id }}" data-card-id="{{ $candid->id }}" />
                         <div class="card-content-wrapper">
                             <span class="check-icon"></span>
                             <div class="card-content">
-                                <img src="https://cdn.vectorstock.com/i/1000x1000/53/21/young-businessman-profile-over-white-background-vector-12055321.webp"
-                                    alt="" />
-                                <h4>Elmehdi Kachour</h4>
+                                <img src="{{ asset('assets/uploads/candidats/' . $candid->image) }}" alt="" />
+                                <h4>{{ $candid->name }}</h4>
                                 <h5>Lorem ipsum dolor sit amet, consectetur.</h5>
                             </div>
                         </div>
                     </label>
+                @endforeach
 
-                    <label for="radio-card-2" class="radio-card">
-                        <input type="radio" name="radio-card" id="radio-card-2" />
-                        <div class="card-content-wrapper">
-                            <span class="check-icon"></span>
-                            <div class="card-content">
-                                <img src="https://blog.1portrait.ie/wp-content/uploads/2020/08/1portrait-professional-business-headshots-linkedin.jpg"
-                                    alt="" />
-                                <h4>Belmadani Younes</h4>
-                                <h5>Lorem ipsum dolor sit amet, consectetur.</h5>
-                            </div>
-                        </div>
-                    </label>
 
-                    <label for="radio-card-3" class="radio-card">
-                        <input type="radio" name="radio-card" id="radio-card-3" />
-                        <div class="card-content-wrapper">
-                            <span class="check-icon"></span>
-                            <div class="card-content">
-                                <img src="https://media.istockphoto.com/id/1352849942/photo/serious-female-profile-portrait.jpg?s=612x612&w=0&k=20&c=s7yKJSOYdLVlT8sOjniGnFK2nMdx-hEd6g5RkhKNr5I="
-                                    alt="" />
-                                <h4>Belmadani Younes</h4>
-                                <h5>Lorem ipsum dolor sit amet, consectetur.</h5>
-                            </div>
-                        </div>
-                    </label>
+
                 </div>
             </div>
             <div class="vote-section">
-                <button class="button-vote" id="myBtn">voter</button>
+                <button class="button-vote w-full" id="myBtn">voter</button>
                 <div id="myModal" class="modal">
-                    <form class="modal-container" action="">
+                    <form id="votingForm" class="modal-container" onsubmit="return submitVote()">
+                        @csrf
                         <header class="modal-container-header">
                             <h1 class="modal-container-title">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"
@@ -191,14 +66,16 @@
                                 Paulum, cum regem Persem captum adduceret, eodem flumine invectio? Quid igitur dubitamus in
                                 tota eius natura quaerere quid sit effectum? Duo Reges: constructio interrete. </p>
 
-                            <input type="password" name="" class="password-voter"
-                                placeholder="Veullez entrer votre mot de passe" required>
+                                <input type="password" name="password" class="password-voter" placeholder="Veuillez entrer votre mot de passe" required>
+                                <div id="error-message" style="color: red;"></div>
+
                         </section>
 
                         <footer class="modal-container-footer">
-                            <button class="button is-ghost">Annuler</button>
-                            <button class="button is-primary" type="submit">voter</button>
+                            <button type="button" class="button is-ghost" onclick="cancelVote()">Annuler</button>
+                            <button type="submit" class="button is-primary" >Vote</button>
                         </footer>
+
                     </form>
                 </div>
             </div>
@@ -247,4 +124,71 @@
             }
         }
     </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var selectedCard = null;
+
+            var radioButtons = document.querySelectorAll('input[name="radio-card"]');
+
+            radioButtons.forEach(function (radioButton) {
+                radioButton.addEventListener('change', function () {
+                    if (this.checked) {
+                        selectedCard = this.getAttribute('data-card-id');
+                        console.log('Selected Card ID:', selectedCard);
+                        // You can now use the selectedCard variable for further processing
+                    }
+                });
+            });
+        });
+    </script>
+<script>
+    function cancelVote() {
+        // Placeholder for cancelVote function
+        console.log('Vote canceled');
+    }
+
+    function submitVote() {
+        var enteredPassword = document.querySelector('.password-voter').value;
+
+        if (enteredPassword === '12345678') {
+            // Password is correct, continue with form submission
+            return true;
+        } else {
+            // Password is incorrect, display error message
+            document.getElementById('error-message').innerText = 'Mot de passe incorrect. Veuillez réessayer.';
+            return false;
+        }
+    }
+    function addVote() {
+    // Get voter_id from the authenticated user
+    var voterId = {{ auth()->id() }}; // Assuming you are using Laravel Blade syntax
+
+    // Get election_id from the URL
+    var urlParams = new URLSearchParams(window.location.search);
+    var electionId = urlParams.get('election_id');
+    fetch('/add-vote', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRF-TOKEN': document.querySelector('input[name="_token"]').value,
+        },
+        body: JSON.stringify({
+            voter_id: voterId,
+            election_id: electionId,
+            candid_id: selectedCard, // provide the candid_id value,
+            voted_at: new Date().toISOString(), // timestamp for voted_at
+        }),
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.status === 'success') {
+            console.log('Vote added successfully');
+        } else {
+            console.error('Failed to add vote:', data.message);
+        }
+    })
+    .catch(error => console.error('Error:', error));
+}
+
+</script>
 @endsection

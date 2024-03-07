@@ -3,6 +3,7 @@
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\CandidateController;
 use App\Http\Controllers\ElectionController;
+use App\Http\Controllers\VotesController;
 use App\Models\Candidate;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -34,7 +35,10 @@ All Normal Users Routes List
 Route::middleware(['auth', 'user-access:user'])->group(function () {
     Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('app');
     // Route::get('/', [ElectionController::class, 'index'])->name('app');
-    Route::get('/vote', [CandidateController::class, 'getall']);
+    Route::get('/vote/{id}', [CandidateController::class, 'getall']);
+    Route::post('/check-password',[VotesController::class, 'checkPassword'] )->name('checkPassword');
+    Route::post('/add-vote', [VotesController::class, 'addVote']);
+
 });
 /*------------------------------------------
 --------------------------------------------

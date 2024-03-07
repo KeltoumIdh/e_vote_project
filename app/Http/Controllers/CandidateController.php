@@ -13,9 +13,9 @@ class CandidateController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function getall()
+    public function getall($id)
     {
-        $candidats = Candidate::all();
+        $candidats = Candidate::where('election_id',$id)->get();
         return view('welcome', compact('candidats'));
     }
     public function index()
