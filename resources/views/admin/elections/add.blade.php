@@ -14,7 +14,7 @@
         >
         {{ csrf_field() }}
         <label class="block mb-6">
-            <span class="text-gray-700">Your name</span>
+            <span class="text-gray-700"> name</span>
               <input
                 name="name"
                 value="{{ old('name') }}"
@@ -68,7 +68,7 @@
             @enderror
 
             <label class="block mb-6">
-              <span class="text-gray-700">Your photo</span>
+              <span class="text-gray-700">photo</span>
               <input
                 name="image"
                 type="file"

@@ -69,7 +69,7 @@
             @enderror
 
             <label class="block mb-6">
-              <span class="text-gray-700">Your photo</span>
+              <span class="text-gray-700"> photo</span>
               <input
                 name="image"
                 type="file"

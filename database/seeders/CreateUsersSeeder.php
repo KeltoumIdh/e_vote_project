@@ -21,7 +21,7 @@ class CreateUsersSeeder extends Seeder
                'password'=> bcrypt('12345678'),
             ],
             [
-               'name'=>'youness belmadani',
+               'name'=>'younes belmadani',
                'email'=>'younes.belmadani@ynov.com',
                'type'=> 0,
                'password'=> bcrypt('12345678'),
